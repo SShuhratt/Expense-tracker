@@ -1,5 +1,5 @@
 FROM php:8.4-fpm
-WORKDIR /var/www/shuhrat
+WORKDIR /root/var/www/shuhrat
 
 RUN apt-get update && apt-get install -y \
     libpng-dev \
