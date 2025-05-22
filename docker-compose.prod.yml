@@ -5,18 +5,11 @@ services:
       dockerfile: docker/Dockerfile.prod
     container_name: expense-tracker-app
     volumes:
-      - .:/var/www/shuhrat
+      - .:/var/www/
     depends_on:
       - db
     networks:
       - expense-track
-    environment:
-      DB_HOST: expense-track-db
-      DB_PORT: 5432
-      DB_USERNAME: root
-      DB_PASSWORD: 123
-      DB_DATABASE: expense_db
-
   db:
     image: postgres:15
     container_name: expense-tracker-db
@@ -37,7 +30,7 @@ services:
     ports:
       - "85:80"
     volumes:
-      - .:/var/www/shuhrat
+      - .:/var/www/
       - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - app

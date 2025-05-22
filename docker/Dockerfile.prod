@@ -1,5 +1,5 @@
 FROM php:8.4-fpm
-WORKDIR /var/www/shuhrat
+WORKDIR /var/www/
 
 RUN apt-get update && apt-get install -y \
     libpng-dev \
@@ -13,9 +13,6 @@ RUN apt-get update && apt-get install -y \
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-#RUN chown -R www-data:www-data /var/www/shuhrat \
-#    && chmod -R 755 /var/www/shuhrat/storage /var/www/shuhrat/bootstrap/cache
 
-CMD ["php-fpm"]
 
 
