@@ -2,7 +2,7 @@ services:
   app:
     build:
       context: docker
-      dockerfile: docker/Dockerfile.prod
+      dockerfile: Dockerfile.prod
     container_name: expense-tracker-app
     volumes:
       - .:/var/www/
