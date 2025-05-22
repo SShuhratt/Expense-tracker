@@ -5,7 +5,7 @@ services:
       dockerfile: docker/Dockerfile.prod
     container_name: expense-tracker-app
     volumes:
-      - .:/var/www/shuhrat
+      - .:/root/var/www/shuhrat
     depends_on:
       - db
     networks:
@@ -27,7 +27,7 @@ services:
     ports:
       - "5436:5432"
     volumes:
-      - expense-track:/var/lib/postgresql/data
+      - expense-track:/root/var/lib/postgresql/data
     networks:
       - expense-track
 
@@ -37,7 +37,7 @@ services:
     ports:
       - "85:80"
     volumes:
-      - .:/var/www/shuhrat
+      - .:/root/var/www/shuhrat
       - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - app
