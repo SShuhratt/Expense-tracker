@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Expense;
 use App\Models\Income;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -16,8 +15,10 @@ class HomeController extends Controller
 
         $totalIncome = $incomes->sum('amount');
         $totalExpense = $expenses->sum('amount');
-        $balance = $totalIncome - $totalExpense;
 
-        return view('home', compact('incomes', 'expenses', 'balance', 'totalIncome', 'totalExpense'));
+        $realBalance = $totalIncome - $totalExpense;
+        $balance = $realBalance >= 0 ? $realBalance : 0;
+
+        return view('home', compact('incomes', 'expenses', 'balance', 'realBalance', 'totalIncome', 'totalExpense'));
     }
 }

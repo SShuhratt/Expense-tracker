@@ -1,0 +1,20 @@
+name: PHPStan Analysis
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  phpstan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+      - name: Install Dependencies
+        run: composer install --no-progress
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyse

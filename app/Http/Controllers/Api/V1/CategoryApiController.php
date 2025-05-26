@@ -47,11 +47,4 @@ class CategoryApiController extends Controller
 
         return response()->json($category, 200);
     }
-
-    public function destroy(Category $category)
-    {
-        $category->delete();
-
-        return response()->json(['message' => 'Category deleted successfully.'], 200);
-    }
 }

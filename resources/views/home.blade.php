@@ -5,9 +5,10 @@
         <h2 class="mb-4">Dashboard</h2>
 
         <div class="mb-4 p-3 bg-light rounded shadow-sm">
-            <h4>💰 Balance: ${{ number_format($balance, 2) }}</h4>
-            <p>Total Income: ${{ number_format($totalIncome, 2) }}</p>
-            <p>Total Expense: ${{ number_format($totalExpense, 2) }}</p>
+            <h4>💰 Displayed Balance: ${{ number_format($balance, 2) }}</h4>
+            <p>🧮 Real Balance (may be negative): ${{ number_format($realBalance, 2) }}</p>
+            <p>📈 Total Income: ${{ number_format($totalIncome, 2) }}</p>
+            <p>📉 Total Expense: ${{ number_format($totalExpense, 2) }}</p>
         </div>
 
         <div class="row">

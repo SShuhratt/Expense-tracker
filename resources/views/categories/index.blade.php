@@ -29,11 +29,6 @@
                     <td>{{ ucfirst($category->type) }}</td>
                     <td>
                         <a href="{{ route('categories.edit', $category) }}" class="btn btn-sm btn-warning">Edit</a>
-                        <form action="{{ route('categories.destroy', $category) }}" method="POST" style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-sm btn-danger" onclick="return confirm('Delete this category?')">Delete</button>
-                        </form>
                     </td>
                 </tr>
             @endforeach
